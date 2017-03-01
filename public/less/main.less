@@ -1,0 +1,587 @@
+// "out": "./main.css", "compress": true
+// //初始化
+@import "normalize.less"; //
+@import "Adaptive.less";
+@import "base.less";
+@yifucolor: red;
+@white: white;
+@font32: 32px; // ======
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+input,
+textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+}
+// ====
+// 清除浮动
+
+.clearfix() {
+    &:after,
+    &:before {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+// Usage as a mixin
+
+.element {
+    .clearfix();
+}
+// ======
+// 导航切换
+
+.yifu_header_switcher {
+    transform: translate(538/100rem);
+    transition: all 0.1s;
+}
+// selection_color颜色
+
+.selection_Bgcolor {
+    color: @white;
+    background-color: @mainColor;
+}
+
+.yifu_layout {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.yifu_body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.yifu_layout .yifu_header {
+    padding-bottom: 88/100rem;
+
+    .headerZ-index {
+        width: 100%;
+        height: 88/100rem;
+        background: @white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+
+        .switcher {
+            display: inline-block;
+            width: 42/100rem;
+            height: 38/100rem;
+            background: url("../../img/search_icon@2x.png") no-repeat;
+            background-size: 42/100rem 38/100rem;
+            margin: 25/100rem 0 25/100rem 27/100rem;
+            float: left;
+        }
+
+        .selection {
+            width: 280/100rem;
+            height: 58/100rem;
+            border: 2/100rem solid @mainColor;
+            border-radius: 8/100rem;
+            margin: 14/100rem 0 14/100rem 166/100rem;
+            float: left;
+
+            .shop {
+                display: inline-block;
+                float: left;
+                width: 140/100rem;
+                height: 100%;
+                font-size: 32/100rem;
+                line-height: 58/100rem;
+                font-family: "微软雅黑";
+                text-align: center;
+                color: @white;
+                // &:hover {
+                //     background-color: @mainColor;
+                //     color: @white;
+                // }
+            }
+
+            .sale {
+                display: inline-block;
+                float: right;
+                width: 139/100rem;
+                height: 100%;
+                font-size: 32/100rem;
+                font-family: "微软雅黑";
+                line-height: 58/100rem;
+                text-align: center;
+                color: @mainColor;
+
+                &:hover {
+                    background-color: @mainColor;
+                    color: @white;
+                }
+            }
+        }
+    }
+
+    .screen {
+        float: right;
+        display: inline-block;
+        width: 37/100rem;
+        height: 38/100rem;
+        background: url("../../img/choose_icon@2x.png") no-repeat;
+        background-size: 37/100rem 38/100rem;
+        margin: 23/100rem 22/100rem 27/100rem 0;
+    }
+}
+//轮播图
+
+.swiper-container {
+    z-index: -1;
+    margin-top: 88/100rem;
+}
+
+.swiper-container img {
+    display: block;
+    width: 750/100rem;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.swiper-pagination {
+    text-align: right;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fabc09;
+}
+
+.sort {
+    height: 200/100rem;
+    width: 100%;
+    margin-top: -5/100rem;
+    overflow: hidden;
+    position: relative;
+
+    ul {
+        width: 1800/100rem;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        li {
+            float: left;
+            width: 180/100rem;
+            height: 180/100rem;
+            margin-left: 20/100rem;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+// ======================分类开始
+
+.Sortswiper-container {
+    height: 200/100rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    .swiper-wrapper {
+        height: 200/100rem;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        .swiper-slide {
+            width: 220/100rem;
+            height: 200/100rem;
+
+            img {
+                display: block;
+                width: 180/100rem;
+                height: 180/100rem;
+                margin: 20/100rem;
+            }
+        }
+    }
+}
+
+.yifu_swipe {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    visibility: visible;
+    position: relative;
+    height: 820/100rem;
+}
+// 主体部分
+
+.yifu_main {
+    height: 820/100rem;
+    width: 100%;
+    z-index: -1;
+}
+
+.yifu_box01_list {
+    position: relative;
+    -webkit-transition: left 600ms ease-out;
+    width: 100%;
+    left: 0;
+
+    .li_list {
+        .yifu_pic_list {
+            img {
+                z-index: -1;
+            }
+        }
+    }
+}
+
+.yifu_box01_list .li_list_one {
+    .yifu_pic_list_one {
+        height: 750/100rem;
+        width: 750/100rem;
+
+        .img_one {
+            height: 750/100rem;
+            width: 750/100rem;
+            position: relative;
+        }
+
+        .li_list_one_a {
+            display: inline-block;
+            width: 640/100rem;
+            height: 30/100rem;
+            position: absolute;
+            left: 50%;
+            bottom: 100/100rem;
+            color: @white;
+            font-size: 30/100rem;
+            margin-left: -220/100rem;
+        }
+    }
+}
+
+.li_list {
+    width: 100%;
+    position: relative;
+    float: left;
+    vertical-align: top;
+}
+/*pic_list*/
+.yifu_box01_list {
+    .pic_list {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .pic_list img {
+        float: left;
+        width: 750/100rem;
+    }
+}
+// 分类信息开始
+
+.yifu_info {
+    height: 550/100rem;
+    width: 100%;
+    padding-top: 20/100rem;
+
+    .yifu_info_swiper-container {
+        height: 100%;
+        width: 100%;
+
+        .swiper-wrapper {
+            height: 100%;
+            width: 100%;
+
+            .swiper-slide {
+                width: 220/100rem;
+                height: 100%;
+
+                img {
+                    width: 180/100rem;
+                    height: 180/100rem;
+                    margin: 28/100rem 20/100rem 29/100rem;
+                }
+
+                .introduce {
+                    font-size: 22/100rem;
+                    color: #3e3e3e;
+                    text-align: center;
+                    font-family: "微软雅黑";
+                    margin-bottom: 31/100rem;
+                }
+
+                .money {
+                    color: #ff3f8b;
+                    font-size: 28/100rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+//底部开始
+
+.yifu_tab {
+    height: 1rem;
+    width: 100%;
+    background: #fff;
+    border-top: 2/100rem solid #ccc;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-top: 10/100rem;
+
+    ul {
+        width: 100%;
+
+        li {
+            float: left;
+            width: 20%;
+
+            a {
+                display: block;
+                width: 100%;
+                font-size: 20/100rem;
+                text-align: center;
+                color: #ff3f8b;
+
+                &:hover {
+                    color: black;
+                }
+
+                .fa {
+                    display: block;
+                    font-size: 50/100rem;
+                }
+            }
+        }
+    }
+}
+// ====================================
+
+.navs {
+    width: 538/100rem;
+    height: 100%;
+    background-color: rgb(54,58,70);
+    position: fixed;
+    left: -538/100rem;
+    top: 0;
+    z-index: 10;
+}
+
+.navs form {
+    width: 466/100rem;
+    height: 56/100rem;
+    margin-left: 37/100rem;
+    margin-top: 16/100rem;
+    margin-right: 35/100rem;
+    position: relative;
+}
+
+.navs form span {
+    position: absolute;
+    left: 420/100rem;
+    top: 15/100rem;
+}
+
+.navs form input {
+    width: 466/100rem;
+    height: 56/100rem;
+    border-radius: 10/100rem;
+    font-size: 32/100rem;
+    font-family: "宋体";
+    text-align: center;
+}
+
+.navs dl {
+    width: 100%;
+    height: 576/100rem;
+    padding-top: 30/100rem;
+    padding-left: 37/100rem;
+    font-size: 32/100rem;
+    color: @white;
+}
+
+.navs dt {
+    height: 100/100rem;
+    line-height: 100/100rem;
+}
+
+.navs dt a {
+    display: inline-block;
+    font-size: 32/100rem;
+}
+
+.navs dt a span {
+    font-family: "宋体";
+    color: @white;
+}
+
+.navs dd {
+    height: 100/100rem;
+    line-height: 100/100rem;
+}
+
+.navs dd a {
+    display: inline-block;
+    font-size: 32/100rem;
+    color: @white;
+    position: relative;
+}
+
+.navs dd a span {
+    font-family: "宋体";
+    color: @white;
+    text-align: left;
+}
+
+.navs dd a i {
+    font-size: 32/100rem;
+    color: @white;
+    position: absolute;
+    left: 440/100rem;
+    top: 0;
+}
+// 登录页面开始
+// 头部开始
+
+.yifu_lg {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: "楷体";
+    background-color: #f4f5f6;
+    height: 1334/100rem;
+}
+
+.lg_header {
+    height: 90/100rem;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 50/100rem;
+
+    i {
+        display: inline-block;
+        float: left;
+        color: #b9babb;
+        font-size: 40/100rem;
+        padding: 23/100rem 0 23/100rem 34/100rem;
+    }
+
+    h1 {
+        font-size: 40/100rem;
+        color: #131313;
+        line-height: 90/100rem;
+        margin: 25/100rem 265/100rem 25/100rem 235/100rem;
+    }
+}
+// 头部结束
+// 输入信息开始
+
+.lg_info {
+    form {
+        width: 100%;
+        height: 200/100rem;
+        background-color: red;
+        position: relative;
+
+        .inp1 {
+            font-size: 30px;
+            height: 99/100rem;
+            line-height: 99/100rem;
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-bottom: 1px solid #e7e7e7;
+            padding-left: 31/100rem;
+        }
+
+        .inp2 {
+            height: 100/100rem;
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 100/100rem;
+            font-size: 30px;
+            height: 100/100rem;
+            padding-left: 31/100rem;
+        }
+
+        .inp3 {
+            display: block;
+            width: 690/100rem;
+            height: 88/100rem;
+            margin: 0 auto;
+            font-size: 34/100rem;
+            position: absolute;
+            left: 30/100rem;
+            top: 300/100rem;
+        }
+
+        p {
+            float: right;
+            margin: 36/100rem 42/100rem 0 0;
+            font-size: 30/100rem;
+            color: #7d7d7d;
+            position: absolute;
+            right: 0;
+            top: 390/100rem;
+        }
+    }
+}
+/*广告*/
+.yifu_advert {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.yifu_advert img {
+    width: 512/100rem;
+    height: 689/100rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -344.5/100rem;
+    margin-left: -256/100rem;
+}
